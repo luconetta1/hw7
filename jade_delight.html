@@ -87,6 +87,28 @@ function makeSelect(name, minRange, maxRange)
 
 <script language="javascript">
 
+var street = document.getElementsByTagName("p")[2];
+var city = document.getElementsByTagName("p")[3];
+var delivery = false;
+
+$(document).ready(function() {
+    $(street).hide();
+    $(city).hide();
+});
+
+document.getElementsByName("p_or_d")[1].onchange = function (){
+		$(street).show();
+		$(city).show();
+        delivery = true;
+}
+
+document.getElementsByName("p_or_d")[0].onchange = function (){
+		$(street).hide();
+		$(city).hide();
+        delivery = false;
+}
+
+
 var quants = [0,0,0,0,0];
 
 
@@ -115,25 +137,9 @@ document.getElementsByTagName('TABLE')[0].onchange = function(){
 
 
 }
-    var street = document.getElementsByTagName("p")[2];
-    var city = document.getElementsByTagName("p")[3];
-    var delivery = false;
 
-$(document).ready(function() {
-    $(street).hide();
-    $(city).hide();
-});
-document.getElementsByName("p_or_d")[1].onchange = function (){
-		$(street).show();
-		$(city).show();
-        delivery = true;
 
-}
-document.getElementsByName("p_or_d")[0].onchange = function (){
-		$(street).hide();
-		$(city).hide();
-        delivery = false;
-}
+
 
 
 function validate(){
